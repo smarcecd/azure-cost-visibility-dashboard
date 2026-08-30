@@ -23,7 +23,7 @@ Watch me building this lab here:
 | Resources | Log Analytics Workspace, Cost Management Budget, Action Group, Logic App, Azure Workbook |
 | Deploy Time | ~5 min (Terraform) + ~10 min (portal: Logic App designer + Workbook) |
 | Cost | Near-$0 at lab scale — this project *monitors* spend, it doesn't generate meaningful spend of its own |
-| Relationship to other labs | Standalone — doesn't build on [Lab 1](https://github.com/smarcecd/ntfs-file-server-lab-azure) or [Lab RBAC](https://github.com/smarcecd/terraform-azure-rbac-lab) |
+| Relationship to other labs | Standalone — doesn't build on other labs |
 
 ---
 
