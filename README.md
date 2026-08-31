@@ -64,8 +64,7 @@ azure-cost-dashboard-lab/
 ├── variables.tf
 ├── outputs.tf
 ├── terraform.tfvars.example
-├── terraform.tfvars
-└── .gitignore
+└── terraform.tfvars
 ```
 
 ---
