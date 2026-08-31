@@ -1,5 +1,5 @@
 variable "yourname" {
-  description = "sandy"
+  description = "Your name, lowercase, no spaces. Used to make resource names unique."
   type        = string
 }
  
@@ -10,7 +10,7 @@ variable "location" {
 }
  
 variable "alert_email" {
-  description = "sm4rc3cd@gmail.com"
+  description = "Email address to receive cost alert notifications."
   type        = string
 }
  
