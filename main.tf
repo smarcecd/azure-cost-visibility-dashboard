@@ -1,4 +1,4 @@
-##Provider and data sources
+## Provider and data sources
 terraform {
   required_providers {
     azurerm = {
@@ -14,7 +14,7 @@ provider "azurerm" {
  
 data "azurerm_client_config" "current" {}
 
-##Resource group
+## Resource group
 resource "azurerm_resource_group" "main" {
   name     = "rg-cost-dashboard-${var.yourname}"
   location = var.location
@@ -22,7 +22,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 
-##Log Analytics Workspace
+## Log Analytics Workspace
 resource "azurerm_log_analytics_workspace" "main" {
   name                = "law-cost-${var.yourname}"
   location            = var.location
@@ -33,7 +33,7 @@ resource "azurerm_log_analytics_workspace" "main" {
 }
 
 
-##Action Group
+## Action Group
 resource "azurerm_monitor_action_group" "email_alerts" {
   name                = "ag-cost-alerts-${var.yourname}"
   resource_group_name = azurerm_resource_group.main.name
@@ -50,7 +50,7 @@ resource "azurerm_monitor_action_group" "email_alerts" {
 
 
 
-##Budget with alert thresholds
+## Budget with alert thresholds
 resource "azurerm_consumption_budget_subscription" "main" {
   name            = "budget-cost-${var.yourname}"
   subscription_id = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
@@ -92,7 +92,7 @@ resource "azurerm_consumption_budget_subscription" "main" {
 
 
 
-##Logic App Workflow
+## Logic App Workflow
 resource "azurerm_logic_app_workflow" "cost_alert" {
   name                = "la-cost-alert-${var.yourname}"
   location            = var.location
@@ -101,7 +101,7 @@ resource "azurerm_logic_app_workflow" "cost_alert" {
 }
 
 
-##Diagnostic settings send activity logs to Log Analytics
+## Diagnostic settings send activity logs to Log Analytics
 resource "azurerm_monitor_diagnostic_setting" "subscription_logs" {
   name                       = "diag-sub-to-law"
   target_resource_id         = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
