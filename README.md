@@ -89,7 +89,7 @@ az login
 
 ### ⚙️ Step 3 — Configure Variables
 
-Copy the example variables file and fill in your own values:
+Update your information ont **terraform.tfvars**. Copy the example variables file and fill in your own values:
 
 ```hcl
 yourname     = "yourname"
@@ -98,6 +98,8 @@ alert_email  = "your.email@example.com"
 ```
 
 `yourname` keeps every resource name unique; `alert_email` is where budget-threshold notifications will land.
+
+Also, update the **start_date** on the **main.tf** file to the date your are doing the lab or a day after.
 
 ### 🏗️ Step 4 — Deploy Infrastructure
 
