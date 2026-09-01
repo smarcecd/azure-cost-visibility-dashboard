@@ -75,6 +75,9 @@ azure-cost-dashboard-lab/
 
 ```powershell
 git clone https://github.com/smarcecd/azure-cost-visibility-dashboard.git
+```
+Access to the new created folder
+```powershell
 cd azure-cost-visibility-dashboard
 ```
 
@@ -82,8 +85,6 @@ cd azure-cost-visibility-dashboard
 
 ```powershell
 az login
-az account set --subscription "Azure subscription 1"
-az account show
 ```
 
 ### ⚙️ Step 3 — Configure Variables
@@ -102,7 +103,11 @@ alert_email  = "your.email@example.com"
 
 ```powershell
 terraform init
+```
+```powershell
 terraform plan     # expect 6 resources to add
+```
+```powershell
 terraform apply
 ```
 
