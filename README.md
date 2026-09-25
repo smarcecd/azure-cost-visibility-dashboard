@@ -133,12 +133,12 @@ Terraform provisions the Logic App container only — the trigger and email acti
 
 To make sure you have the correct **HTTP POST URL**, on PowerShell please type:
 Change the "yourname" part please
+
 ```powershell
  Get-AzLogicAppTriggerCallbackUrl `
    -ResourceGroupName rg-cost-dashboard-yourname `
    -Name la-cost-alert-sandyc `
    -TriggerName When_an_HTTP_request_is_received
-
 ```
 
 
@@ -183,7 +183,6 @@ az monitor action-group update \
 | where type == "microsoft.consumption/usageDetails"
 | summarize totalCost = sum(cost) by resourceGroup
 | order by totalCost desc
-
    ```
 7. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Apply**
 
