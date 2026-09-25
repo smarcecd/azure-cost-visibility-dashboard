@@ -126,7 +126,8 @@ Terraform provisions the Logic App container only — the trigger and email acti
 5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`), and **Body** (add dynamic content → `Body` from the HTTP trigger)
 6. **Save**
 
-To make sure you have the correct **HTTP POST URL**, on PowerShell please type:
+To make sure you have the correct **HTTP POST URL**, on PowerShell please type: 
+
 Change the "yourname" part please
 
 ```powershell
