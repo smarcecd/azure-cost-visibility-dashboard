@@ -135,9 +135,9 @@ To make sure you have the correct **HTTP POST URL**, on PowerShell please type:
 Change the "yourname" part please
 ```powershell
  Get-AzLogicAppTriggerCallbackUrl `
->>   -ResourceGroupName rg-cost-dashboard-yourname `
->>   -Name la-cost-alert-sandyc `
->>   -TriggerName When_an_HTTP_request_is_received
+   -ResourceGroupName rg-cost-dashboard-yourname `
+   -Name la-cost-alert-sandyc `
+   -TriggerName When_an_HTTP_request_is_received
 
 ```
 
