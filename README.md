@@ -124,12 +124,23 @@ terraform output action_group_id
 
 Terraform provisions the Logic App container only — the trigger and email action are built in the visual designer, and the Office 365 connector requires an interactive sign-in Terraform can't automate.
 
-1. Open `la-cost-alert-[yourname]` → **Logic app designer**
-2. **Add a trigger** → search **HTTP** → **When a HTTP request is received** → Click **Save**
+1. Open `la-cost-alert-[yourname]` → Development Tools → **Logic app designer**
+2. **Add a trigger** → search **HTTP** → Select **When a HTTP request is received** → Click **Save**
 3. Copy the **HTTP POST URL**
-4. Click the **+** → Select **New step** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
+4. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
 5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`), and **Body** (add dynamic content → `Body` from the HTTP trigger)
 6. **Save**
+
+To make sure you have the correct **HTTP POST URL**, on PowerShell please type:
+Change the "yourname" part please
+```powershell
+ Get-AzLogicAppTriggerCallbackUrl `
+>>   -ResourceGroupName rg-cost-dashboard-yourname `
+>>   -Name la-cost-alert-sandyc `
+>>   -TriggerName When_an_HTTP_request_is_received
+
+```
+
 
 Then attach the Logic App as a receiver on the Action Group:
 
@@ -142,19 +153,39 @@ az monitor action-group update `
   <logic-app-callback-url>
 ```
 
+If that doesn't work, go to the Azure Portal and click on **Cloud Shell**, select **Bash** and paste:
+
+```powershell
+az monitor action-group update \
+  --name ag-cost-alerts-yourname \
+  --resource-group rg-cost-dashboard-yourname \
+  --add-action webhook la-webhook \
+    "<logic-app-callback-url>"
+```
+
+
+
 ### 📊 Step 6 — Build the Cost Dashboard (Azure Workbooks)
 
-1. **Monitor** → **Workbooks** → **+ New**
-2. **+ Add** → **Add query** → Data source: **Azure Resource Graph**
+1. In the Azure portal search for **Monitor** → Select  **Workbooks** → Click **+ New**
+2. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph**
 3. Paste:
    ```kusto
    resourcecontainers
    | where type == "microsoft.resources/subscriptions/resourcegroups"
    | project resourceGroup, location
    ```
-4. **Run Query** → **Done Editing**
-5. **+ Add** → **Add metric** → select subscription → resource type **Cost Management**
-6. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Apply**
+4. Click  **Run Query** → To verify, click **Done Editing**
+5. **+ Add** → **Add query** → Data source: **Azure Resource Graph**
+6. 3. Paste:
+   ```kusto
+  resources
+| where type == "microsoft.consumption/usageDetails"
+| summarize totalCost = sum(cost) by resourceGroup
+| order by totalCost desc
+
+   ```
+7. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Apply**
 
 ---
 
