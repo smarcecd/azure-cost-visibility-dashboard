@@ -53,7 +53,7 @@ You deploy the alerting pipeline end-to-end, wire the notification path together
 - [ ] A local directory to store Terraform files
 - [ ] The account you use to access the Azure Portal as Admin, must have an active Outlook mailbox.
 
-If you've already completed a previous lab in this series, Terraform and the Azure CLI are already installed — skip ahead to [Step 3](#️-step-3--configure-variables).
+If you've already completed a previous lab in this series, Terraform and the Azure CLI should be already installed.
 
 ---
 
