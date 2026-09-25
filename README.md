@@ -114,12 +114,6 @@ terraform plan     # expect 6 resources to add
 terraform apply
 ```
 
-After deployment, capture:
-
-```powershell
-terraform output logic_app_callback_url
-terraform output action_group_id
-```
 
 ### 🔧 Step 5 — Wire Up the Logic App (Portal)
 
