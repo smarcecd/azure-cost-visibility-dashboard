@@ -147,7 +147,7 @@ On PowerShell type: (Change the "yourname" part please)
 az account show --query id -o tsv
 ```
 
-  **- Attach the Logic App as a receiver on the Action Group: ** 
+ **- Attach the Logic App as a receiver on the Action Group:**
 
 ```powershell
 az monitor action-group update `
