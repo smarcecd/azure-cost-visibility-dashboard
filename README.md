@@ -137,7 +137,7 @@ Change the "yourname" part please
 ```powershell
  Get-AzLogicAppTriggerCallbackUrl `
    -ResourceGroupName rg-cost-dashboard-yourname `
-   -Name la-cost-alert-sandyc `
+   -Name la-cost-alert-yourname `
    -TriggerName When_an_HTTP_request_is_received
 ```
 
