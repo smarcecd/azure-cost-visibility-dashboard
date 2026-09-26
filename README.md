@@ -200,7 +200,7 @@ Budget thresholds only fire on *actual* spend, so the fastest way to confirm the
 | Check | Where | Expected Result |
 |---|---|---|
 | Resource group deployed | Portal → resource groups | `rg-cost-dashboard-[yourname]` with all 6 resources |
-| Budget thresholds active | Cost Management → Budgets | 3 notifications at 25% / 50% / 100% of $200 |
+| Budget thresholds active |  Subscriptions → Azure subscription 1 → Budgets | 3 notifications at 25% / 50% / 100% of $200 |
 | Action Group has both receivers | Monitor → Action groups | Email receiver + Logic App receiver |
 | Logic App is live | Monitor → the Logic App | Status: **Enabled**, run history shows a successful test |
 | Test alert email received | Your inbox | Formatted alert email from the Logic App, not a raw JSON payload |
