@@ -123,8 +123,12 @@ Terraform provisions the Logic App container only — the trigger and email acti
 2. **Add a trigger** → search **HTTP** → Select **When a HTTP request is received** → Click **Save**
 3. Copy the **HTTP POST URL**
 4. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
-5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`), and **Body** (add dynamic content → `Body` from the HTTP trigger)
-6. **Save**
+5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`)
+6. **Body** add dynamic content → `Body` from the HTTP trigger or paste:
+```powershell
+   @{triggerBody()}
+```
+7. **Save**
 
 To make sure you have the correct **HTTP POST URL**, on PowerShell please type: 
 
