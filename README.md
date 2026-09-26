@@ -130,9 +130,9 @@ Terraform provisions the Logic App container only — the trigger and email acti
 ```
 7. **Save**
 
-To make sure you have the correct **HTTP POST URL**, on PowerShell please type: 
-
-Change the "yourname" part please
+ **- Get the HTTP POST URL**
+ 
+On PowerShell type: (Change the "yourname" part please)
 
 ```powershell
  Get-AzLogicAppTriggerCallbackUrl `
@@ -141,8 +141,13 @@ Change the "yourname" part please
    -TriggerName When_an_HTTP_request_is_received
 ```
 
+  **- Get the Subscription ID**
 
-Then attach the Logic App as a receiver on the Action Group:
+```powershell
+az account show --query id -o tsv
+```
+
+  **- Attach the Logic App as a receiver on the Action Group: ** 
 
 ```powershell
 az monitor action-group update `
