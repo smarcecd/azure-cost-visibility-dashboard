@@ -135,7 +135,7 @@ Terraform provisions the Logic App container only — the trigger and email acti
 
  **Option 1:** 
 
- 1. Got to Home → Monitor → Alerts → Action groups → ag-cost-alerts-yourname
+ 1. Got to Home → **Monitor** → **Alerts** → **Action groups** → ag-cost-alerts-yourname
  2. Click **Edit** and scroll down to **Actions** and Fill in:
 Action name: logic-app-alert
 Action type: Logic App
@@ -151,7 +151,7 @@ az monitor action-group update \
   --add-action webhook la-webhook \
     "<logic-app-callback-url>"
 ```
-**- Get the HTTP POST URL**
+- Get the **HTTP POST URL**
  
 On PowerShell type: (Change the "yourname" part please)
 
@@ -162,7 +162,7 @@ On PowerShell type: (Change the "yourname" part please)
    -TriggerName When_an_HTTP_request_is_received
 ```
 
-  **- Get the Subscription ID**
+  - Get the **Subscription ID**
 
 ```powershell
 az account show --query id -o tsv
