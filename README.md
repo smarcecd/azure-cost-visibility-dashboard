@@ -182,14 +182,14 @@ az monitor action-group update \
    ```
 4. Click  **Run Query** → To verify, click **Done Editing**
 5. **+ Add** → **Add query** → Data source: **Azure Resource Graph**
-6. 3. Paste:
+6. Paste:
 ```powershell
   resources
 | where type == "microsoft.consumption/usageDetails"
 | summarize totalCost = sum(cost) by resourceGroup
 | order by totalCost desc
 ```
-7. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Apply**
+7. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Save As**
 
 ---
 
