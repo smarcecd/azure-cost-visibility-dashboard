@@ -120,17 +120,38 @@ terraform apply
 Terraform provisions the Logic App container only — the trigger and email action are built in the visual designer, and the Office 365 connector requires an interactive sign-in Terraform can't automate.
 
 1. Open `la-cost-alert-[yourname]` → Development Tools → **Logic app designer**
-2. **Add a trigger** → search **HTTP** → Select **When a HTTP request is received** → Click **Save**
-3. Copy the **HTTP POST URL**
-4. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
+2. **Add a trigger** → Search and Select **When a HTTP request is received** → Click **Save**
+3. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
 5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`)
-6. **Body** add dynamic content → `Body` from the HTTP trigger or paste:
+6. **Body** add dynamic content → `Body` from the HTTP trigger or paste: Azure cost alert triggered. Check your Azure Cost Management dashboard for details
 ```powershell
    @{triggerBody()}
 ```
 7. **Save**
 
- **- Get the HTTP POST URL**
+ 
+
+ **- Attach the Logic App as a receiver on the Action Group:**
+
+ **Option 1:** 
+
+ 1. Got to Home → Monitor → Alerts → Action groups → ag-cost-alerts-yourname
+ 2. Click **Edit** and scroll down to **Actions** and Fill in:
+Action name: logic-app-alert
+Action type: Logic App
+Logic App: select la-cost-alert-yourname 
+ 
+
+ **Option 2:** You can also do it trough the Azure Portal and click on **Cloud Shell**, select **Bash** and paste:
+
+```powershell
+az monitor action-group update \
+  --name ag-cost-alerts-yourname \
+  --resource-group rg-cost-dashboard-yourname \
+  --add-action webhook la-webhook \
+    "<logic-app-callback-url>"
+```
+**- Get the HTTP POST URL**
  
 On PowerShell type: (Change the "yourname" part please)
 
@@ -147,28 +168,6 @@ On PowerShell type: (Change the "yourname" part please)
 az account show --query id -o tsv
 ```
 
- **- Attach the Logic App as a receiver on the Action Group:**
-
-```powershell
-az monitor action-group update `
-  --name ag-cost-alerts-yourname `
-  --resource-group rg-cost-dashboard-yourname `
-  --add-action logicapp la-webhook la-cost-alert-yourname `
-  /subscriptions/<sub-id>/resourceGroups/rg-cost-dashboard-yourname/providers/Microsoft.Logic/workflows/la-cost-alert-yourname `
-  <logic-app-callback-url>
-```
-
-If that doesn't work, go to the Azure Portal and click on **Cloud Shell**, select **Bash** and paste:
-
-```powershell
-az monitor action-group update \
-  --name ag-cost-alerts-yourname \
-  --resource-group rg-cost-dashboard-yourname \
-  --add-action webhook la-webhook \
-    "<logic-app-callback-url>"
-```
-
-
 
 ### 📊 Step 6 — Build the Cost Dashboard (Azure Workbooks)
 
@@ -180,16 +179,8 @@ az monitor action-group update \
    | where type == "microsoft.resources/subscriptions/resourcegroups"
    | project resourceGroup, location
    ```
-4. Click  **Run Query** → To verify, click **Done Editing**
-5. **+ Add** → **Add query** → Data source: **Azure Resource Graph**
-6. Paste:
-```powershell
-  resources
-| where type == "microsoft.consumption/usageDetails"
-| summarize totalCost = sum(cost) by resourceGroup
-| order by totalCost desc
-```
-7. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Save As**
+
+4. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Save As**
 
 ---
 
@@ -238,7 +229,7 @@ This lab is intentionally standalone — no other lab in the series depends on i
 
 ```bash
 # Full teardown
-terraform destroy
+terraform destroy -auto-approve
 ```
 
 This mirrors a pattern real teams use to stay ahead of cloud spend rather than reacting to it after the invoice lands.
