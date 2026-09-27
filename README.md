@@ -279,7 +279,7 @@ Workspace with status Active and tags showing managed_by: terraform.
 | `BudgetStartDateInvalid` | `start_date` isn't the first of a current/future month | Update `start_date` in `main.tf` |
 | `AuthorizationFailed` on budget | Account lacks Cost Management Contributor role | `az role assignment create --role "Cost Management Contributor" --assignee <your-email> --scope /subscriptions/<sub-id>` |
 | Logic App email step asks for sign-in | Office 365 connector requires interactive auth | Sign in through the portal designer — Terraform can't automate this |
-| Alert email never arrives | Budget thresholds require *actual* spend to cross the limit | Manually fire a test notification from the Action Group to verify delivery |
+| Alert email never arrives | Budget thresholds require *actual* spend to cross the limit | Manually fire a test notification from the Action Group to verify delivery, check Spam or Junk folder|
 
 ---
 
