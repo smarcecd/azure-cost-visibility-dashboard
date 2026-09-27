@@ -10,7 +10,8 @@ A monitoring and alerting system that gives a business owner real-time visibilit
 
 Watch me building this lab here:
 
-[![CostDashboardLab](PASTE_THUMBNAIL_IMAGE_URL_HERE)](PASTE_LOOM_LINK_HERE)
+[![Screenshot 2026-09-27 153940](https://github.com/user-attachments/assets/473b56e6-ef45-4dcb-9a5d-a033edbb775b)](https://www.loom.com/share/1aac18f3027244d5b29f6c471c791b25)
+
 
 ---
 
