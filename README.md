@@ -108,14 +108,14 @@ Also, update the **start_date** on the **main.tf** file to the date your are doi
 terraform init
 ```
 ```powershell
-terraform plan     # expect 6 resources to add
+terraform plan   
 ```
 ```powershell
 terraform apply
 ```
 
 
-### 🔧 Step 5 — Wire Up the Logic App (Portal)
+### 🔧 Step 5 — Configure the Logic App (Portal)
 
 Terraform provisions the Logic App container only — the trigger and email action are built in the visual designer, and the Office 365 connector requires an interactive sign-in Terraform can't automate.
 
@@ -142,7 +142,7 @@ Check your Azure Cost Management dashboard for more information.
 
  
 
- **- Attach the Logic App as a receiver on the Action Group:**
+ ### 🔧 Step 6 — Attach the Logic App as a receiver on the Action Group
 
  **Option 1:** 
 
@@ -164,7 +164,7 @@ az monitor action-group update \
 ```
 
 
-### 📊 Step 6 — Build the Cost Dashboard (Azure Workbooks)
+### 📊 Step 7 — Build the Cost Dashboard (Azure Workbooks)
 
 1. In the Azure portal search for **Monitor** → Select  **Workbooks** → Click **+ New**
 2. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
@@ -187,11 +187,10 @@ az monitor action-group update \
 
 ---
 
-## 🧪 Step 7 — Validate the Alert Pipeline
+## 🧪 Step 8 — Validate the Alert Pipeline
 
 Budget thresholds only fire on *actual* spend, so the fastest way to confirm the pipeline works end-to-end is to trigger a test notification manually rather than waiting for real usage. <br>
 
-***
 
  **- Resource group deployed**   <br>
  
@@ -254,7 +253,7 @@ Monitor → Workbooks → Spend broken out by resource group
 
 <img width="596" height="304" alt="Screenshot 2026-09-26 231210" src="https://github.com/user-attachments/assets/615dff41-2ef3-4d73-a41e-ee7503deaf0a" />
 
-<hr style="border:0; border-top:1px solid #ccc;">
+***
 
 **- Log Analytics Workspace**
 
