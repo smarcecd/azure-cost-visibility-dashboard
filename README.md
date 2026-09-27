@@ -176,6 +176,7 @@ Budget thresholds only fire on *actual* spend, so the fastest way to confirm the
 
  **- Resource group deployed**   <br>
  
+ 
 Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group, Logic App and Log Analytics Workspace 
 
 <img width="791" height="389" alt="RG_cost-dashboard" src="https://github.com/user-attachments/assets/76ab1b72-6bec-4995-b3eb-7407cfdcde35" /> <br>
@@ -184,22 +185,46 @@ Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group,
 
  **- Budget thresholds active**  <br>
  
+ 
  Subscriptions → Your Subscription Name → Budgets → 3 notifications at 25% / 50% / 100% of $200  <br>
 
 <img width="928" height="347" alt="budgets1" src="https://github.com/user-attachments/assets/c1b1f174-a445-404c-a21f-11db16bb7350" /> <br>
  <img width="637" height="409" alt="budgets2" src="https://github.com/user-attachments/assets/c0ccbe55-29f8-42b0-b39f-ebc6382e6218" /> <br>
 
 
+
  **- Action Group has both receivers** <br>
  
+ 
  Monitor → Action groups →  Email receiver + Logic App receiver | Webhook receiver <br>
+ 
  <img width="822" height="223" alt="action group" src="https://github.com/user-attachments/assets/d90d74da-988c-4f65-ba93-227688c2b422" /> <br>
+
+ 
 
 **- Logic App is live**  <br>
 
-Monitor → the Logic App | Status: **Enabled**, run history shows a successful test |
-| Test alert email received | Your inbox | Formatted alert email from the Logic App, not a raw JSON payload |
-| Workbook renders | Monitor → Workbooks | Spend broken out by resource group |
+Home → Logic Apps | Status: **Enabled**:
+
+<img width="865" height="199" alt="logic app" src="https://github.com/user-attachments/assets/b2774b6c-bf4b-4957-a048-7b06e31d658c" />
+
+
+Run history shows a successful test: 
+
+<img width="946" height="164" alt="Screenshot 2026-09-26 230438" src="https://github.com/user-attachments/assets/3b71d4bd-f843-4c18-ab58-fac0fecbff4e" />
+
+<img width="560" height="327" alt="Screenshot 2026-09-26 230554" src="https://github.com/user-attachments/assets/8782dc77-3118-4703-8a42-798d90560e5e" />
+
+Test alert email received in Your inbox:
+
+<img width="596" height="259" alt="Screenshot 2026-09-26 230809" src="https://github.com/user-attachments/assets/74e018ef-109c-410b-8cf1-780526e1d586" />
+
+
+**- Workbook renders**
+
+Monitor → Workbooks → Spend broken out by resource group 
+<img width="596" height="304" alt="Screenshot 2026-09-26 231210" src="https://github.com/user-attachments/assets/615dff41-2ef3-4d73-a41e-ee7503deaf0a" />
+
 
 ---
 
