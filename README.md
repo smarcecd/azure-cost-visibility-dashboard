@@ -167,23 +167,45 @@ az monitor action-group update \
 ### 📊 Step 7 — Build the Cost Dashboard (Azure Workbooks)
 
 1. In the Azure portal search for **Monitor** → Select  **Workbooks** → Click **+ New**
-2. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
+2. Lists every resource group in your subscription, shows its Azure region, counts how many resources it contains, and sorts the groups from most to least populated.
+   Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
    Paste:
    ```kusto
-   resourcecontainers
-   | where type == "microsoft.resources/subscriptions/resourcegroups"
-   | project resourceGroup, location
+  resourcecontainers
+| where type == "microsoft.resources/subscriptions/resourcegroups"
+| join kind=leftouter (
+    resources
+    | summarize resourceCount = count() by resourceGroup
+) on resourceGroup
+| project resourceGroup, location, resourceCount
+| order by resourceCount desc
+
    ```
 
-3. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
+3. Lists every resource in your subscription along with its type, resource group, location, and key tag‑based cost attributes (environment, owner, costCenter), then sorts them by cost center and owner to support chargeback and cost‑allocation visibility.
+   Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
    Paste:
     ```kusto
     resources
-    | project name, type, resourceGroup, location
-    | order by resourceGroup asc, type asc, name asc
+| project name,
+         type,
+         resourceGroup,
+         location,
+         environment = tostring(tags.environment),
+         owner       = tostring(tags.owner),
+         costCenter  = tostring(tags.costCenter)
+| order by costCenter asc, owner asc
     ```
 
-4. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Save As**
+4. It counts how many resources exist for each resource type in your subscription and sorts those types from most to least common.
+   Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
+   Paste:
+    ```kusto
+   resources
+| summarize count() by type
+| order by count_ desc
+   ```
+5. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Save As**
 
 ---
 
