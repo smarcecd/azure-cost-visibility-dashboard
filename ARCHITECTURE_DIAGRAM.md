@@ -19,6 +19,9 @@
 
 ## 1. High-Level Overview
 
+[![Screenshot 2026-09-27 154854](https://github.com/user-attachments/assets/102b211d-940d-4006-92fd-54a67bc4b3e3)](https://www.loom.com/share/0897421d0ca0464ca47585e5fb05c78d)
+
+
 This lab provisions a **cost-monitoring and alerting pipeline** entirely through **Terraform on Azure**, using **Azure Monitor**, **Cost Management**, **Logic Apps**, and **Azure Workbooks** to turn raw subscription spend into a plain-language email alert and a live dashboard.
 
 [![explanation](PASTE_THUMBNAIL_IMAGE_URL_HERE)](PASTE_LOOM_LINK_HERE)
