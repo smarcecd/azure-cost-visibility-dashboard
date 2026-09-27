@@ -167,13 +167,21 @@ az monitor action-group update \
 ### 📊 Step 6 — Build the Cost Dashboard (Azure Workbooks)
 
 1. In the Azure portal search for **Monitor** → Select  **Workbooks** → Click **+ New**
-2. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph**
-3. Paste:
+2. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
+   Paste:
    ```kusto
    resourcecontainers
    | where type == "microsoft.resources/subscriptions/resourcegroups"
    | project resourceGroup, location
    ```
+
+3. Click **+ Add** → **Add query** → Data source: **Azure Resource Graph** → Subscriptions: **Your Subscription**
+   Paste:
+    ```kusto
+    resources
+    | project name, type, resourceGroup, location
+    | order by resourceGroup asc, type asc, name asc
+    ```
 
 4. **Save** → name it `Cost Visibility Dashboard` → scope to your resource group → **Save As**
 
