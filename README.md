@@ -131,7 +131,7 @@ Terraform provisions the Logic App container only — the trigger and email acti
 
 Your Azure cost threshold has been reached.
 
-**Details:**
+Details:
 @{triggerBody()}
 Check your Azure Cost Management dashboard for more information.
 ```
