@@ -204,25 +204,31 @@ Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group,
 
 **- Logic App is live**  <br>
 
-Home → Logic Apps | Status: **Enabled**:
+Home → Logic Apps | Status: **Enabled**:   <br>
+
 
 <img width="865" height="199" alt="logic app" src="https://github.com/user-attachments/assets/b2774b6c-bf4b-4957-a048-7b06e31d658c" />
 
 
-Run history shows a successful test: 
+Run history shows a successful test:   <br>
 
 <img width="946" height="164" alt="Screenshot 2026-09-26 230438" src="https://github.com/user-attachments/assets/3b71d4bd-f843-4c18-ab58-fac0fecbff4e" />
 
+
 <img width="560" height="327" alt="Screenshot 2026-09-26 230554" src="https://github.com/user-attachments/assets/8782dc77-3118-4703-8a42-798d90560e5e" />
 
-Test alert email received in Your inbox:
+
+Test alert email received in Your inbox:  <br>
+
 
 <img width="596" height="259" alt="Screenshot 2026-09-26 230809" src="https://github.com/user-attachments/assets/74e018ef-109c-410b-8cf1-780526e1d586" />
+
 
 
 **- Workbook renders**
 
 Monitor → Workbooks → Spend broken out by resource group 
+
 <img width="596" height="304" alt="Screenshot 2026-09-26 231210" src="https://github.com/user-attachments/assets/615dff41-2ef3-4d73-a41e-ee7503deaf0a" />
 
 
