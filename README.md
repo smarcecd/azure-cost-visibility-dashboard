@@ -138,9 +138,9 @@ Terraform provisions the Logic App container only — the trigger and email acti
 
  1. Got to Home → **Monitor** → **Alerts** → **Action groups** → ag-cost-alerts-yourname
  2. Click **Edit** and scroll down to **Actions** and Fill in:
-    Action name: logic-app-alert
-    Action type: Logic App
-    Logic App: select la-cost-alert-yourname 
+        Action name: logic-app-alert
+        Action type: Logic App
+        Logic App: select la-cost-alert-yourname 
  
 
  **Option 2:** You can also do it trough the Azure Portal and click on **Cloud Shell**, select **Bash** and paste:
