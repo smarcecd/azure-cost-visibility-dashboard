@@ -182,11 +182,13 @@ Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group,
  **- Budget thresholds active** 
  Subscriptions → Your Subscription Name → Budgets → 3 notifications at 25% / 50% / 100% of $200 
 
-<img width="928" height="347" alt="budgets1" src="https://github.com/user-attachments/assets/c1b1f174-a445-404c-a21f-11db16bb7350" />
- <img width="637" height="409" alt="budgets2" src="https://github.com/user-attachments/assets/c0ccbe55-29f8-42b0-b39f-ebc6382e6218" />
+<img width="928" height="347" alt="budgets1" src="https://github.com/user-attachments/assets/c1b1f174-a445-404c-a21f-11db16bb7350" /> <br>
+ <img width="637" height="409" alt="budgets2" src="https://github.com/user-attachments/assets/c0ccbe55-29f8-42b0-b39f-ebc6382e6218" /> <br>
 
  **- Action Group has both receivers**
- Monitor → Action groups | Email receiver + Logic App receiver |
+ Monitor → Action groups →  Email receiver + Logic App receiver | Webhook receiver
+ <img width="822" height="223" alt="action group" src="https://github.com/user-attachments/assets/d90d74da-988c-4f65-ba93-227688c2b422" /> <br>
+
 | Logic App is live | Monitor → the Logic App | Status: **Enabled**, run history shows a successful test |
 | Test alert email received | Your inbox | Formatted alert email from the Logic App, not a raw JSON payload |
 | Workbook renders | Monitor → Workbooks | Spend broken out by resource group |
