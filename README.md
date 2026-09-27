@@ -114,6 +114,9 @@ terraform plan     # expect 6 resources to add
 terraform apply
 ```
 
+After deploying tou can check the Resource Group, Action Group, Logic App and Log Analytics Workspace was created, by accessing the Resource Group:
+<img width="791" height="389" alt="RG_cost-dashboard" src="https://github.com/user-attachments/assets/76ab1b72-6bec-4995-b3eb-7407cfdcde35" />
+
 
 ### 🔧 Step 5 — Wire Up the Logic App (Portal)
 
