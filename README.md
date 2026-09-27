@@ -246,7 +246,7 @@ Monitor → Workbooks → Spend broken out by resource group
 
 <img width="596" height="304" alt="Screenshot 2026-09-26 231210" src="https://github.com/user-attachments/assets/615dff41-2ef3-4d73-a41e-ee7503deaf0a" />
 
-***
+<hr style="border:0; border-top:1px solid #ccc;">
 
 **- Log Analytics Workspace**
 
