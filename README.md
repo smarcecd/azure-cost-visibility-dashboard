@@ -183,6 +183,7 @@ az monitor action-group update \
 
 Budget thresholds only fire on *actual* spend, so the fastest way to confirm the pipeline works end-to-end is to trigger a test notification manually rather than waiting for real usage. <br>
 
+***
 
  **- Resource group deployed**   <br>
  
@@ -192,6 +193,7 @@ Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group,
 <img width="791" height="389" alt="RG_cost-dashboard" src="https://github.com/user-attachments/assets/76ab1b72-6bec-4995-b3eb-7407cfdcde35" /> <br>
 
 
+***
 
  **- Budget thresholds active**  <br>
  
@@ -202,6 +204,7 @@ Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group,
  <img width="637" height="409" alt="budgets2" src="https://github.com/user-attachments/assets/c0ccbe55-29f8-42b0-b39f-ebc6382e6218" /> <br>
 
 
+***
 
  **- Action Group has both receivers** <br>
  
@@ -211,6 +214,7 @@ Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group,
  <img width="822" height="223" alt="action group" src="https://github.com/user-attachments/assets/d90d74da-988c-4f65-ba93-227688c2b422" /> <br>
 
  
+***
 
 **- Logic App is live**  <br>
 
@@ -234,6 +238,7 @@ Test alert email received in Your inbox:  <br>
 <img width="596" height="259" alt="Screenshot 2026-09-26 230809" src="https://github.com/user-attachments/assets/74e018ef-109c-410b-8cf1-780526e1d586" />
 
 
+***
 
 **- Workbook renders**
 
@@ -241,6 +246,7 @@ Monitor → Workbooks → Spend broken out by resource group
 
 <img width="596" height="304" alt="Screenshot 2026-09-26 231210" src="https://github.com/user-attachments/assets/615dff41-2ef3-4d73-a41e-ee7503deaf0a" />
 
+***
 
 **- Log Analytics Workspace**
 
