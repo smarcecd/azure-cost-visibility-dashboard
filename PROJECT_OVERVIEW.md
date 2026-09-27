@@ -22,9 +22,8 @@ Why this matters?
 
 ## 1. Project Summary
 
-[![Screenshot 2026-09-27 150514](https://github.com/user-attachments/assets/764e5b92-23ca-4fef-89b0-2698b0842e09)](https://www.loom.com/share/ff770f9bc3574b0a9b35f5541827fc21)
+[![Screenshot 2026-09-27 150514](https://github.com/user-attachments/assets/764e5b92-23ca-4fef-89b0-2698b0842e09)]([https://www.loom.com/share/ff770f9bc3574b0a9b35f5541827fc21](https://www.loom.com/share/3dac74249ea2479b9c885566230c8d38))
 
-[![image](https://github.com/user-attachments/assets/7457a283-955b-46c3-a454-24f7f8902b81)](https://www.loom.com/share/ff770f9bc3574b0a9b35f5541827fc21)
 
 
 This project is a **fully automated, Infrastructure-as-Code lab** that provisions a Azure cost-monitoring pipeline using **Terraform**. It simulates how a real business tracks cloud spend: a budget watches usage against defined thresholds, an alert fires and is translated into a plain-language email, and a live dashboard shows where the money is going — all wired together with a single `terraform apply` plus two short, one-time portal steps.
