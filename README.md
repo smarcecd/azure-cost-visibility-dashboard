@@ -135,7 +135,6 @@ Your Azure cost threshold has been reached.
 @{json(triggerBody())}
 
 Check your Azure Cost Management dashboard for more information.
-
 ```
 
 7. **Save**
@@ -179,7 +178,6 @@ az monitor action-group update \
 ) on resourceGroup
 | project resourceGroup, location, resourceCount
 | order by resourceCount desc
-
    ```
 
 3. Lists every resource in your subscription along with its type, resource group, location, and key tag‑based cost attributes (environment, owner, costCenter), then sorts them by cost center and owner to support chargeback and cost‑allocation visibility.
