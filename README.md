@@ -114,9 +114,6 @@ terraform plan     # expect 6 resources to add
 terraform apply
 ```
 
-After deploying tou can check the Resource Group, Action Group, Logic App and Log Analytics Workspace was created, by accessing the Resource Group:
-<img width="791" height="389" alt="RG_cost-dashboard" src="https://github.com/user-attachments/assets/76ab1b72-6bec-4995-b3eb-7407cfdcde35" />
-
 
 ### 🔧 Step 5 — Wire Up the Logic App (Portal)
 
@@ -165,12 +162,6 @@ On PowerShell type: (Change the "yourname" part please)
    -TriggerName When_an_HTTP_request_is_received
 ```
 
-  - Get the **Subscription ID**
-
-```powershell
-az account show --query id -o tsv
-```
-
 
 ### 📊 Step 6 — Build the Cost Dashboard (Azure Workbooks)
 
@@ -191,10 +182,17 @@ az account show --query id -o tsv
 
 Budget thresholds only fire on *actual* spend, so the fastest way to confirm the pipeline works end-to-end is to trigger a test notification manually rather than waiting for real usage.
 
-| Check | Where | Expected Result |
-|---|---|---|
-| Resource group deployed | Portal → resource groups | `rg-cost-dashboard-[yourname]` with all 6 resources |
-| Budget thresholds active |  Subscriptions → Azure subscription 1 → Budgets | 3 notifications at 25% / 50% / 100% of $200 |
+ **- Resource group deployed**  
+Portal → Resource Groups → `rg-cost-dashboard-[yourname]`  → Action Group, Logic App and Log Analytics Workspace 
+
+<img width="791" height="389" alt="RG_cost-dashboard" src="https://github.com/user-attachments/assets/76ab1b72-6bec-4995-b3eb-7407cfdcde35" />
+
+ **- Budget thresholds active** 
+ Subscriptions → Your Subscription Name → Budgets → 3 notifications at 25% / 50% / 100% of $200 
+
+<img width="928" height="347" alt="budgets1" src="https://github.com/user-attachments/assets/c1b1f174-a445-404c-a21f-11db16bb7350" />
+ <img width="637" height="409" alt="budgets2" src="https://github.com/user-attachments/assets/c0ccbe55-29f8-42b0-b39f-ebc6382e6218" />
+
 | Action Group has both receivers | Monitor → Action groups | Email receiver + Logic App receiver |
 | Logic App is live | Monitor → the Logic App | Status: **Enabled**, run history shows a successful test |
 | Test alert email received | Your inbox | Formatted alert email from the Logic App, not a raw JSON payload |
