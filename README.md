@@ -124,10 +124,20 @@ Terraform provisions the Logic App container only — the trigger and email acti
 3. Copy the **HTTP URL**
 4. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
 5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`)
-6. **Body** add dynamic content → `Body` from the HTTP trigger or paste: Azure cost alert triggered. Check your Azure Cost Management dashboard for details
+6. **Body** add dynamic content → `Body` from the HTTP trigger or paste:
+   
 ```powershell
-   @{triggerBody()}
+   Azure Cost Alert Triggered 🚨
+
+Your Azure cost threshold has been reached.
+
+**Details:**
+@{json(triggerBody())}
+
+Check your Azure Cost Management dashboard for more information.
+
 ```
+
 7. **Save**
 
  
@@ -230,6 +240,15 @@ Test alert email received in Your inbox:  <br>
 Monitor → Workbooks → Spend broken out by resource group 
 
 <img width="596" height="304" alt="Screenshot 2026-09-26 231210" src="https://github.com/user-attachments/assets/615dff41-2ef3-4d73-a41e-ee7503deaf0a" />
+
+
+**- Log Analytics Workspace**
+
+Home → Log Analytics workspaces → law-cost-yourname → Overview 
+
+Workspace with status Active and tags showing managed_by: terraform. 
+
+<img width="871" height="343" alt="Screenshot 2026-09-26 232652" src="https://github.com/user-attachments/assets/701a691a-ec6b-4b73-bb0b-068aff0e851f" />
 
 
 ---
