@@ -121,7 +121,8 @@ Terraform provisions the Logic App container only — the trigger and email acti
 
 1. Open `la-cost-alert-[yourname]` → Development Tools → **Logic app designer**
 2. **Add a trigger** → Search and Select **When a HTTP request is received** → Click **Save**
-3. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
+3. Copy the **HTTP URL**
+4. Click the **+** → Select **Add New Interaction** → Search for **Office 365 Outlook** → Select **Send an email (V2)** → sign in your Outlook account when prompted
 5. Fill in **To**, **Subject** (`Azure Cost Alert — Budget Threshold Reached`)
 6. **Body** add dynamic content → `Body` from the HTTP trigger or paste: Azure cost alert triggered. Check your Azure Cost Management dashboard for details
 ```powershell
@@ -150,16 +151,6 @@ az monitor action-group update \
   --resource-group rg-cost-dashboard-yourname \
   --add-action webhook la-webhook \
     "<logic-app-callback-url>"
-```
-- Get the **HTTP POST URL**
- 
-On PowerShell type: (Change the "yourname" part please)
-
-```powershell
- Get-AzLogicAppTriggerCallbackUrl `
-   -ResourceGroupName rg-cost-dashboard-yourname `
-   -Name la-cost-alert-yourname `
-   -TriggerName When_an_HTTP_request_is_received
 ```
 
 
