@@ -73,7 +73,7 @@ azure-cost-dashboard-lab/
 
 ## 🚀 Deployment Guide
 
-### Step 1 — Clone This Repository
+### 📥 Step 1 — Clone This Repository
 
 ```powershell
 git clone https://github.com/smarcecd/azure-cost-visibility-dashboard.git
@@ -83,7 +83,7 @@ Access to the new created folder
 cd azure-cost-visibility-dashboard
 ```
 
-### Step 2 — Log In to Azure
+### 🌐 Step 2 — Log In to Azure
 
 ```powershell
 az login
@@ -107,11 +107,7 @@ Also, update the **start_date** on the **main.tf** file to the date your are doi
 
 ```powershell
 terraform init
-```
-```powershell
 terraform plan   
-```
-```powershell
 terraform apply
 ```
 
